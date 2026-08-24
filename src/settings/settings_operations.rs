@@ -16,6 +16,9 @@ pub fn load_api_keys(settings: &mut Settings) {
     if let Ok(entry) = Entry::new("rust_chatbot", "gpt_api_key") {
         keys.gpt = entry.get_password().unwrap_or_default();
     }
+    if let Ok(entry) = Entry::new("rust_chatbot", "deepseek_api_key") {
+        keys.deepseek = entry.get_password().unwrap_or_default();
+    }
 }
 
 pub fn save_api_keys(settings: &mut Settings) {
@@ -28,6 +31,9 @@ pub fn save_api_keys(settings: &mut Settings) {
     }
     if let Ok(entry) = Entry::new("rust_chatbot", "gpt_api_key") {
         let _ = entry.set_password(&keys.gpt);
+    }
+    if let Ok(entry) = Entry::new("rust_chatbot", "deepseek_api_key") {
+        let _ = entry.set_password(&keys.deepseek);
     }
     settings.api_keys_updated = true;
 }

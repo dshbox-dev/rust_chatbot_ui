@@ -12,7 +12,7 @@ This Rust Chatbot UI I made is for using multiple AI providers with your own API
 
 ## Features
 
-- **Multi-Provider Support**: Integrate with various AI providers including GPT, Claude, and Fireworks.
+- **Multi-Provider Support**: Integrate with various AI providers including GPT, Claude, Fireworks, and DeepSeek.
 - **Dynamic Model Switching**: Seamlessly change AI models mid-conversation without losing context.
 - **Customizable Themes**: Colors! Some weird colors too.
 - **Chat History Management**: Efficiently organize and access your past conversations.

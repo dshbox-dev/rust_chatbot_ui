@@ -2,6 +2,7 @@ pub mod fireworks;
 pub mod claude;
 pub mod none;
 pub mod gpt;
+pub mod deepseek;
 pub mod base_provider;
 
 use std::fmt::Display;
@@ -35,5 +36,6 @@ pub fn get_providers(api_keys: String) -> Vec<Box<dyn ProviderTrait + Send + Syn
         Box::new(fireworks::Fireworks::new(keys.get(0).cloned().unwrap_or_default())),
         Box::new(claude::Claude::new(keys.get(1).cloned().unwrap_or_default())),
         Box::new(gpt::GPT::new(keys.get(2).cloned().unwrap_or_default())),
+        Box::new(deepseek::DeepSeek::new(keys.get(3).cloned().unwrap_or_default())),
     ]
 }
