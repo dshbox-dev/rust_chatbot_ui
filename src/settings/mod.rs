@@ -19,6 +19,7 @@ struct ApiKeys {
     fireworks: String,
     claude: String,
     gpt: String,
+    deepseek: String,
 }
 
 impl Settings {
@@ -28,6 +29,7 @@ impl Settings {
             fireworks: String::new(),
             claude: String::new(),
             gpt: String::new(),
+            deepseek: String::new(),
         }));
         let mut settings = Self {
             show_settings: false,
@@ -47,7 +49,7 @@ impl Settings {
 
     pub fn get_api_keys(&self) -> String {
         let keys = self.api_keys.lock().unwrap();
-        format!("{},{},{}", keys.fireworks, keys.claude, keys.gpt)
+        format!("{},{},{},{}", keys.fireworks, keys.claude, keys.gpt, keys.deepseek)
     }
 
     pub fn get_current_theme(&self) -> &Theme {
@@ -62,6 +64,8 @@ impl Settings {
             return Arc::clone(&providers[2]);
         } else if !keys.gpt.is_empty() {
             return Arc::clone(&providers[3]);
+        } else if !keys.deepseek.is_empty() {
+            return Arc::clone(&providers[4]);
         }
         Arc::clone(&providers[0])
     }

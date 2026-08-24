@@ -29,6 +29,11 @@ pub fn render(settings: &mut Settings, ctx: &egui::Context, _icons: &Icons) {
                 });
 
                 ui.horizontal(|ui| {
+                    ui.label(RichText::new("DeepSeek API Key:").strong().color(theme.settings_text_color));
+                    ui.text_edit_singleline(&mut keys.deepseek);
+                });
+
+                ui.horizontal(|ui| {
                     ui.label(RichText::new("Theme:").strong().color(theme.settings_text_color));
                     
                     ui.visuals_mut().widgets.inactive.bg_fill = theme.theme_dropdown_bg_color;
